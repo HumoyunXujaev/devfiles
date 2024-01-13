@@ -1,7 +1,7 @@
 import os
 from django import setup
 # Задайте переменную окружения DJANGO_SETTINGS_MODULE
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "devfiles.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 
 # Вызовите функцию setup() для настройки Django
 setup()
