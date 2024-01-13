@@ -1,11 +1,16 @@
 {
-    "$schema": "https://railway.app/railway.schema.json",
-    "build": {
-        "builder": "NIXPACKS"
-    },
-    "deploy": {
-        "startCommand": "python bot.py && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn mysite.wsgi",
-        "restartPolicyType": "ON_FAILURE",
-        "restartPolicyMaxRetries": 10
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "NIXPACKS"
+  },
+  "deploy": {
+    "startCommand": "python manage.py migrate && python manage.py collectstatic --noinput && gunicorn mysite.wsgi",
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 10
+  },
+  "services": {
+    "telegram-bot": {
+      "command": "python bot.py"
     }
+  }
 }
