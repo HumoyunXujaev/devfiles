@@ -8,7 +8,7 @@ setup()
 
 
 from telegram import Update
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackContext
 from django.core.files.base import ContentFile
 from files.models import TelegramFile
 from django.http import HttpResponse
