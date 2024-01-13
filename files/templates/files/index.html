@@ -1,0 +1,178 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<style>
+    body{
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.container{
+    max-width: 1170px;
+    margin:auto;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+ul{
+    list-style: none;
+}
+.footer{
+    background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left:0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 8px;
+}
+.footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    margin:0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+</style>
+
+<!-- Main Section -->
+{% if profile.attempts >= 1 %}
+    <main class="projects">
+        <section class="hero-section text-center">
+            <div class="container container--narrow">
+                <div class="hero-section__box">
+                    <h2>Search for <span>Files</span></h2>
+                </div>
+
+                <div class="hero-section__search">
+                    <form id='searchForm' class="form" action="{% url 'search' %}" method="get">
+                        <div class="form__field">
+                            <label for="formInput#search">Search By File Link</label>
+                            <input class="input input--text" id="formInput#search" type="text" name="search_query"
+                                placeholder="Search by File Link" value="{{search_query}}" />
+                        </div>
+
+                        <input class="btn btn--sub btn--lg" type="submit" value="Search" />
+                    </form>
+                </div>
+            </div>
+        </section>
+{% else %}
+    <main class="projects">
+        <section class="hero-section text-center">
+            <div class="container container--narrow">
+                <div class="hero-section__box">
+                    <h5>You have no more attempts left if you want to get more attempts, you can contact the <a href="https://t.me/humoyun_0011">admin</a></h5> 
+                </div>
+            </div>
+        </section>
+{% endif %}
+    <div style="justify-content: center;align-items: center; margin: 30px;">
+        <h2 style="text-align: center;margin-bottom: 10px;">How to use it?</h2>
+        <ul style="margin: 5px;"><li style="margin: 5px;">
+            1. Enter the url of the file you want to get.
+        </li><li style="margin: 5px;">
+2.Copy the unique id that will be showen to you. If the id is not there, it means there's no file like that, but don't worry, at the moment when you search for a file that we don't have, it will immediatly send us request and we gonna add that file as soon as possible.
+        </li>
+    <li style="margin: 5px;">
+        3. Go to <a href="https://t.me/getdevfilesbot">our telegramm bot </a> and paste the id you got from the website along with /getfile method and you will get the file.
+    </li>
+</ul>
+<h5 style="text-align: center;margin-top: 20px;">Hope it will help, if you get stuck, you can always ask us questions at hujaevhumoyun01@gmail.com</h5>
+    </div>
+
+
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>company</h4>
+                    <ul>
+                        <li><a href="mailto:hujaevhumoyun01@gmail.com">@support</a></li>
+                    </ul>
+                       
+                </div>
+              
+                <div class="footer-col">
+                    <h4>Our Telegram Bot</h4>
+                    <ul>
+                        <li><a href="https://t.me/getdevfilesbot">@devfiles_getfilesbot</a></li>
+                    </ul>
+                    
+                    
+                    
+                </div>
+             
+                <div class="footer-col">
+                    <h4>contact details</h4>
+                    <div class="social-links">
+                        <p>Lorem ipsum dolor sit amer tdfsakdsf dskdaf;lkds</p>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

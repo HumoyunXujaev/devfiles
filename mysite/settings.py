@@ -27,6 +27,17 @@ SECRET_KEY = 'django-insecure-rc^*w^w&6g9_(uvx#6s*bnt!w)l0rdi%!l7mv#y%uc&x%wo5pk
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*' '*',
+                        'https://django-server-production-9091.up.railway.app']
+CSRF_ALLOWED_ORIGINS = ['http://*', 'https://*' '*',
+                        'https://django-server-production-9091.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['http://*', 'https://*' '*',
+                        'https://django-server-production-9091.up.railway.app']
+CSRF_ALLOWED_ORIGINS = ['http://*', 'https://*' '*',
+                        'https://django-server-production-9091.up.railway.app']
+
+
+ALLOWED_ORIGINS = ['https://django-server-production-9091.up.railway.app', '*']
 
 # FORM SUBMISSION
 # Comment out the following line and place your railway URL, and your production URL in the array.
@@ -41,6 +52,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users',
+    'files',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +72,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,11 +94,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ["PGDATABASE"],
-        'USER': os.environ["PGUSER"],
-        'PASSWORD': os.environ["PGPASSWORD"],
-        'HOST': os.environ["PGHOST"],
-        'PORT': os.environ["PGPORT"],
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '4D-eE4dDc4FdgEDG2CcbD2eCGA6*-b-C',
+        'HOST': 'viaduct.proxy.rlwy.net',
+        'PORT': '56374',
     }
 }
 
@@ -121,12 +134,29 @@ USE_I18N = True
 USE_TZ = True
 
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'hujaevhumoyun01@gmail.com'
+EMAIL_HOST_PASSWORD = 'difz txcu odxb xuuh'
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+MEDIA_URL = '/images/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
