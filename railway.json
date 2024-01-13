@@ -9,10 +9,8 @@
       "restartPolicyMaxRetries": 10
     },
     "services": {
-      "web": {
-        "command": "gunicorn mysite.wsgi --bind 0.0.0.0:$PORT"
-      },
-      "telegram-bot": {
+      "web": true,
+      "python-worker": {
         "command": "python bot.py"
       }
     }
