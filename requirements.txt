@@ -6,3 +6,4 @@ sqlparse==0.4.2
 whitenoise==6.2.0
 pillow==10.2.0
 python-telegram-bot==13.7
+requests==2.31.0
