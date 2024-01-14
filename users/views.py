@@ -78,6 +78,9 @@ def registerUser(request):
 @login_required(login_url='login')
 def userAccount(request):
     profile = request.user.profile
+    if profile.attempts < 0:
+        profile.attempts = profile.attempts == 0
+        profile.save()
 
     context = {'profile': profile,}
     return render(request, 'users/account.html', context)
