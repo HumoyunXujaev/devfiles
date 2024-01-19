@@ -12,6 +12,8 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackContex
 from django.core.files.base import ContentFile
 from files.models import TelegramFile
 from django.http import HttpResponse
+from django.conf import settings
+
 
 
 def start(update: Update, context: CallbackContext) -> None:
@@ -35,7 +37,7 @@ def get_file(update: Update, context: CallbackContext) -> None:
 
 def main() -> None:
     # Замените 'YOUR_TELEGRAM_BOT_TOKEN' на токен вашего бота
-    updater = Updater(token='6838826201:AAHDRL6GNTA417dt68IF2_blewjUN2lUkcw',use_context=True, )
+    updater = Updater(token=settings.BOT_TOKEN ,use_context=True, )
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start", start))
