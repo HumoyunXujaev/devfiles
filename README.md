@@ -5,20 +5,19 @@
 ## Установка
 
 1. Клонируйте репозиторий:
-
    ```bash
    git clone https://github.com/humoyunxujaev/devfiles.git
    
   1. Create a virtual environment:
-  ```bash
-  python -m venv venv
-  ```
+     ```bash
+     python -m venv venv
+     ```
+
   2.Activate the virtual environment:
       For Windows:
-     ```bash
-      venv\Scripts\activate
-      ```
-    
+         ```bash
+         venv\Scripts\activate
+         ```
       For Unix/Mac:
       ```bash
       source venv/bin/activate
@@ -39,6 +38,11 @@
   ```bash
   BOT_TOKEN = 'your_telegram_bot_token'
   ```
+  7. Run the bot
+      ```bash
+      python bot.py
+      ```
+      
 
 Usage
 1.Start the development server:
