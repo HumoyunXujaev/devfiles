@@ -60,9 +60,6 @@ bot.py/: telegram bot script
 manage.py: main Django management script.
 
 
-Authors
-humoyunxujaev 
-    
 
     
 
